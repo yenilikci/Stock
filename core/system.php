@@ -16,7 +16,6 @@ class system{
            $url = "";
        }
 
-
        //Controller Bulmak İçin
        if (file_exists($this->controllerPath."/".$url[0].".php")) {
            $this->controller = $url[0];
@@ -26,6 +25,7 @@ class system{
        if (class_exists($this->controller))
        {
            $this->controller = new $this->controller;
+           array_shift($url);
        }
        else
        {
@@ -33,14 +33,17 @@ class system{
        }
 
        //Method Bulmak İçin
-        if (isset($url[1]))
+        if (isset($url[0]))
         {
-            if (method_exists($this->controller,$url[1]))
+            if (method_exists($this->controller,$url[0]))
             {
-                $this->method = $url[1];
+                $this->method = $url[0];
+                array_shift($url);
             }
         }
-        echo $this->method;
+
+        //
+        call_user_func_array([$this->controller,$this->method],$url);
 
     }
 }
