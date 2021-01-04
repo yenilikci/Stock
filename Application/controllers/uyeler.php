@@ -2,7 +2,14 @@
 
 class uyeler
 {
-    public function __construct()
+    public function index()
     {
+        echo "uyeler sınıfındasın";
     }
+
+    public function listele()
+    {
+        echo "uyeler listesi burada olacak";
+    }
+
 }
