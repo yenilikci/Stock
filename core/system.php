@@ -7,13 +7,15 @@ class system{
     {
         $this->controller = "main";
         $this->method = "index";
+
+        //Adres Bilgisini Alma
        if (isset($_GET["act"]))
        {
            $url = explode('/',filter_var(rtrim($_GET["act"],'/'),FILTER_SANITIZE_URL));
        }
-       else
-           {
-           $url = "";
+       else {
+           $url[0] = $this->controller;
+           $url[1] = $this->method;
        }
 
        //Controller Bulmak İçin
@@ -29,20 +31,19 @@ class system{
        }
        else
        {
-           exit("böyle bir sınıf bulunamadı");
+           exit($this->controller." sınıfı bulunamadı");
        }
 
        //Method Bulmak İçin
-        if (isset($url[0]))
-        {
-            if (method_exists($this->controller,$url[0]))
-            {
+        if (isset($url[0])) {
+            if (method_exists($this->controller, $url[0])) {
                 $this->method = $url[0];
                 array_shift($url);
+            } else {
+                exit($url[0]." methodu bulunamadı!");
             }
         }
 
-        //
         call_user_func_array([$this->controller,$this->method],$url);
 
     }
