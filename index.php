@@ -1,6 +1,3 @@
 <?php
-
-
-
-
-echo $_GET["act"];
+require_once 'core/system.php';
+$system = new system();
