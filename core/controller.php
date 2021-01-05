@@ -2,6 +2,13 @@
 
 class controller
 {
+    public $sessionManager;
+
+    public function __construct()
+    {
+        $this->sessionManager = new sessionManager();
+    }
+
     //2 parametre, view classına aktarmalı
     public function render($file,$param = []){
         return view::render($file,$param);

@@ -3,7 +3,7 @@
 class helper
 {
 
-    static function rediredt($url)
+    static function redirect($url)
     {
         if ($url)
         {
