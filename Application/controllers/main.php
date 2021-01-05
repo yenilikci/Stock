@@ -4,7 +4,8 @@ class main extends controller
 {
     public function index()
     {
-        $this->model("uye")->uyeEkle();
-        $this->render("uyeler/index",["name"=>"melih","surname"=>"çelik"]);
+        $metin = "insert into values <script>alert('hack')</script> <br>";
+        echo helper::cleaner($metin);
+        $this->render("index",["name"=>"melih","surname"=>"çelik"]);
     }
 }

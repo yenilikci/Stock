@@ -7,6 +7,7 @@ class View
     {
         if (file_exists(VIEWS_PATH."/".$file.".php"))
         {
+            extract($params); //gelen değerlerin keyleri değişken olarak oluşturur
             require_once VIEWS_PATH."/".$file.".php";
         }
         else
