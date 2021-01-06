@@ -23,7 +23,7 @@ class sessionManager extends Model
     {
         if (isset($_SESSION['email']) and isset($_SESSION['password']))
         {
-            $sorgu = $this->db->query('select * from uyeler where  email=? and password=?');
+            $sorgu = $this->db->prepare('select * from uyeler where  email=? and password=?');
             $sorgu->execute(array($_SESSION['email'],$_SESSION['password']));
             if ($sorgu->rowCount() != 0)
             {

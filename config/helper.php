@@ -25,6 +25,11 @@ class helper
         return $text;
     }
 
+    static function flashData($key,$value)
+    {
+        $_SESSION[$key] = $value;
+    }
+
 }
 
 

@@ -25,7 +25,11 @@
     <!-- /.login-logo -->
     <div class="card">
         <div class="card-body login-card-body">
-            <p class="login-box-msg">Oturum Açma Ekranı</p>
+            <?php if (isset($_SESSION['statu'])){?>
+            <p class="login-box-msg">
+                <?=$_SESSION['statu']?>
+            </p>
+            <?php }?>
 
             <form action="<?=SITE_URL?>/login/send" method="post">
                 <div class="input-group mb-3">
@@ -60,8 +64,6 @@
     </div>
 </div>
 
-
-
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
@@ -74,4 +76,3 @@
 <script src="<?=JS_PATH?>/adminlte.min.js"></script>
 </body>
 </html>
-
