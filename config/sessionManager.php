@@ -45,7 +45,7 @@ class sessionManager extends Model
     {
         if ($this->isLogged())
         {
-            $sorgu = $this->db->query('select * from uyeler where email=? and password=?');
+            $sorgu = $this->db->prepare('select * from uyeler where email=? and password=?');
             $sorgu->execute(array($_SESSION['email'],$_SESSION['password']));
             return $sorgu->fetch(PDO::FETCH_ASSOC);
         }

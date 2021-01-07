@@ -3,15 +3,25 @@
 class controller
 {
     public $sessionManager;
+    public $myUserInfo;
 
     public function __construct()
     {
         $this->sessionManager = new sessionManager();
+        $this->myUserInfo = $this->sessionManager->getUserInfo();
     }
 
     //2 parametre, view classına aktarmalı
-    public function render($file,$param = []){
-        return view::render($file,$param);
+    public function render($file,$params = []){
+        if (file_exists(VIEWS_PATH."/".$file.".php"))
+        {
+            extract($params); //gelen değerlerin keyleri değişken olarak oluşturur
+            require_once VIEWS_PATH."/".$file.".php";
+        }
+        else
+        {
+            exit($file."Görüntü dosyası bulunamadı");
+        }
     }
 
     public function model($file)
