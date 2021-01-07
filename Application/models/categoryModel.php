@@ -16,4 +16,11 @@ class categoryModel extends model
         }
     }
 
+    public function listview()
+    {
+        $query = $this->db->prepare("select * from kategori");
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }

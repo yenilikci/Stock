@@ -23,14 +23,14 @@
                     if (isset($_SESSION['statu']))
                     {
                         ?>
-                        <div class="alert alert-danger"><?=$_SESSION['statu'];?></div>
+                        <div class="alert alert-info"><?=$_SESSION['statu'];?></div>
                     <?php
                     }
                     ?>
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Yeni Kategori Oluştur</h3>
+                            <h3 class="card-title"><i class="fas fa-tags"></i>  Yeni Kategori Oluştur</h3>
                         </div>
 
                         <form role="form" action="<?=SITE_URL;?>/category/send" method="post">

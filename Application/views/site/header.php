@@ -10,9 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <title>Admin Paneli</title>
-
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="<?=PLUGINS_PATH;?>/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
     <!-- Theme style -->
     <link rel="stylesheet" href="<?=CSS_PATH;?>/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->

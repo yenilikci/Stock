@@ -2,6 +2,16 @@
 
 class category extends controller
 {
+
+    public function index()
+    {
+        $data = $this->model('categoryModel')->listview();
+        $this->render("site/header");
+        $this->render("site/sidebar");
+        $this->render('category/index',['data' => $data]);
+        $this->render("site/footer");
+    }
+
     public function create()
     {
         if (!$this->sessionManager->isLogged())
