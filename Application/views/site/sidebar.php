@@ -48,6 +48,30 @@
                     </ul>
                 </li>
 
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link active">
+                        <i class="fas fa-box"></i>
+                        <p>
+                            Ürünler
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?=SITE_URL;?>/product/create" class="nav-link">
+                                <i class="fas fa-plus-square"></i>
+                                <p>Ürün Oluştur</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?=SITE_URL;?>/product" class="nav-link">
+                                <i class="fas fa-list-alt"></i>
+                                <p>Ürün Listesi</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
