@@ -119,6 +119,16 @@ class category extends controller
         }
     }
 
+    public function delete($id)
+    {
+        if (!$this->sessionManager->isLogged())
+        {
+            helper::redirect(SITE_URL);
+            die();
+        }
+        $delete = $this->model('categoryModel')->deleteData($id);
+        helper::redirect(SITE_URL."/category");
+    }
 
 
 }

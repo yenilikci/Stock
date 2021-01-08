@@ -37,5 +37,11 @@ class categoryModel extends model
         return $update;
     }
 
+    public function deleteData($id)
+    {
+        $query = $this->db->prepare("delete from kategori where id=?");
+        $query->execute(array($id));
+    }
+
 
 }
