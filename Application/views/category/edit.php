@@ -24,23 +24,25 @@
                     {
                         ?>
                         <div class="alert alert-info"><?=$_SESSION['statu'];?></div>
-                    <?php
+                        <?php
                     }
                     ?>
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title"><i class="fas fa-tags"></i>  Yeni Kategori Oluştur</h3>
+                            <h3 class="card-title"><i class="fas fa-tags"></i>
+                               <span class="mx-2">"<?=$params['data']['ad'];?>" Düzenle</span>
+                            </h3>
                         </div>
 
-                        <form role="form" action="<?=SITE_URL;?>/category/send" method="post">
+                        <form role="form" action="<?=SITE_URL;?>/category/update/<?=$params['data']['id'];?>" method="post">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Kategori Adı</label>
-                                    <input type="text" class="form-control" name="ad">
+                                    <input type="text" class="form-control" name="ad" value="<?=$params['data']['ad']?>">
                                 </div>
 
-                                <button type="submit" class="btn btn-lg btn-primary">Ekle</button>
+                                <button type="submit" class="btn btn-lg btn-primary">Düzenle</button>
                         </form>
                     </div>
 
@@ -61,3 +63,4 @@
         <p>Sidebar content</p>
     </div>
 </aside>
+<!-- /.control-sidebar -->

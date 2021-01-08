@@ -23,4 +23,19 @@ class categoryModel extends model
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getData($id)
+    {
+        $query = $this->db->prepare("select * from kategori where id=?");
+        $query->execute(array($id));
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function updateData($id,$ad)
+    {
+        $query = $this->db->prepare("update kategori set ad=? where id=?");
+        $update = $query->execute(array($ad,$id));
+        return $update;
+    }
+
+
 }
