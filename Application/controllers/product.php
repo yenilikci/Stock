@@ -122,4 +122,14 @@ class product extends controller
         }
     }
 
+    public function delete($id)
+    {
+        if (!$this->sessionManager->isLogged())
+        {
+            helper::redirect(SITE_URL);
+            die();
+        }
+        $this->model('productModel')->getDelete($id);
+        helper::redirect(SITE_URL."/product");
+    }
 }

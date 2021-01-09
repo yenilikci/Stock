@@ -42,7 +42,12 @@ class productModel extends model
         {
             return false;
         }
+    }
 
+    public function getDelete($id)
+    {
+        $query = $this->db->prepare("delete from urunler where id=?");
+        $query->execute(array($id));
     }
 
 }
