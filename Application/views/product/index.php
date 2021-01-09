@@ -30,7 +30,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Ad</th>
-                                    <th></th>
+                                    <th>Kategori</th>
                                     <th>Düzenle</th>
                                     <th>Kaldır</th>
                                 </tr>
@@ -41,10 +41,12 @@
                                 {
                                     foreach ($params['data'] as $key => $value)
                                     {
+                                        $categoryInfo = $this->model('categoryModel')->getData($value['kategoriid']);
                                         ?>
                                         <tr>
                                             <td><?= $value['id']?></td>
                                             <td><?= $value['ad']?></td>
+                                            <td><?=$categoryInfo['ad'];?></td>
                                             <td><a class="btn btn-warning btn-sm" href="<?=SITE_URL;?>/product/edit/<?=$value['id']?>">Düzenle</a></td>
                                             <td><a class="btn btn-danger btn-sm" href="<?=SITE_URL;?>/product/delete/<?=$value['id']?>">Sil</a></td>
                                         </tr>
