@@ -32,7 +32,45 @@ class customer extends controller
 
     public function send()
     {
-
+        if (!$this->sessionManager->isLogged())
+        {
+            helper::redirect(SITE_URL);
+            die();
+        }
+        if ($_POST)
+        {
+            $ad = helper::cleaner($_POST['ad']);
+            $soyad = helper::cleaner($_POST['soyad']);
+            $sirket = helper::cleaner($_POST['sirket']);
+            $email = helper::cleaner($_POST['email']);
+            $telefon = helper::cleaner($_POST['telefon']);
+            $adres = helper::cleaner($_POST['adres']);
+            $tc = helper::cleaner($_POST['tc']);
+            $not = helper::cleaner($_POST['notu']);
+            if ($ad != "" and $soyad !="")
+            {
+                $insert = $this->model('customerModel')->create($ad,$soyad,$sirket,$email,$telefon,$adres,$tc,$not);
+                if ($insert)
+                {
+                    helper::flashData('statu','Müşteri başarıyla eklendi!');
+                    helper::redirect(SITE_URL."/customer/create");
+                }
+                else
+                {
+                    helper::flashData('statu','Müşteri eklenemedi!');
+                    helper::redirect(SITE_URL."/customer/create");
+                }
+            }
+            else
+            {
+                helper::flashData('statu','Müşteri adı ve soyadı boş bırakılamaz!');
+                helper::redirect(SITE_URL."/customer/create");
+            }
+        }
+        else
+        {
+            exit("yasaklı giriş");
+        }
     }
 
     public function edit($id)
