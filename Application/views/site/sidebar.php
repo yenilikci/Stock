@@ -72,6 +72,28 @@
                     </ul>
                 </li>
 
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link active">
+                        <i class="fas fa-users mr-1"></i><p>
+                            Müşteriler
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?=SITE_URL;?>/customer/create" class="nav-link">
+                                <i class="fas fa-plus-square"></i>
+                                <p>Müşteri Oluştur</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?=SITE_URL;?>/customer" class="nav-link">
+                                <i class="fas fa-list-alt"></i>
+                                <p>Müşteri Listesi</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
