@@ -1,4 +1,3 @@
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -23,14 +22,14 @@
                     if (isset($_SESSION['statu']))
                     {
                         ?>
-                        <div class="alert alert-info"><?=$_SESSION['statu'];?></div>
-                        <?php
+                    <div class="alert alert-info"><?=$_SESSION['statu'];?></div>
+                    <?php
                     }
                     ?>
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title"> <i class="fas fa-users mr-1"></i>  Yeni Müşteri Oluştur</h3>
+                            <h3 class="card-title"> <i class="fas fa-users mr-1"></i> Yeni Müşteri Oluştur</h3>
                         </div>
 
                         <form role="form" action="<?=SITE_URL;?>/customer/send" method="post">
