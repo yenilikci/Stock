@@ -22,14 +22,52 @@ class stock extends controller
             helper::redirect(SITE_URL);
             die();
         }
+        $urunler = $this->model('productModel')->listview();
+        $musteriler = $this->model('customerModel')->listview();
         $this->render('site/header');
         $this->render('site/sidebar');
-        $this->render('stock/index');
+        $this->render('stock/create',['urunler' => $urunler,'musteriler' => $musteriler]);
         $this->render('site/footer');
     }
 
     public function send()
     {
+        if (!$this->sessionManager->isLogged())
+        {
+            helper::redirect(SITE_URL);
+            die();
+        }
+        if ($_POST)
+        {
+            $urunid = intval($_POST['urunid']);
+            $musteriid = intval($_POST['musteriid']);
+            $islemtipi = intval($_POST['islemtipi']);
+            $adet = intval($_POST['adet']);
+            $fiyat = helper::cleaner($_POST['fiyat']);
+            if ($adet != 0 and $fiyat != "")
+            {
+                $insert = $this->model('stockModel')->create($urunid,$musteriid,$islemtipi,$adet,$fiyat);
+                if ($insert)
+                {
+                    helper::flashData('statu',"Stok bilgisi başarı ile eklendi!");
+                    helper::redirect(SITE_URL."/stock/create/");
+                }
+                else
+                {
+                    helper::flashData('statu',"Stok bilgisi eklenemedi!");
+                    helper::redirect(SITE_URL."/stock/create/");
+                }
+            }
+            else
+            {
+                helper::flashData('statu',"Ürün fiyat ve adeti boş bırakılamaz!");
+                helper::redirect(SITE_URL."stock/create/");
+            }
+        }
+        else
+        {
+            exit("Yasaklı giriş");
+        }
 
     }
 

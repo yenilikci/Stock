@@ -42,10 +42,14 @@
                                 {
                                     foreach ($params['data'] as $key => $value)
                                     {
+                                        $urunler = $this->model('productModel')->getData($value['urunid']);
+                                        if($value['islemtipi'] == 0){$islem = "Stok Giriş";  $toplamFiyat = "-".$value['adet'] * $value['fiyat'];}else{$islem = "Stok Çıkış";  $toplamFiyat = $value['adet'] * $value['fiyat'];}
                                         ?>
                                         <tr>
                                             <td><?= $value['id']?></td>
-                                            <td><?= $value['ad']?></td>
+                                            <td><?= $urunler['ad']?></td>
+                                            <td><?= $islem ?></td>
+                                            <td><?= $toplamFiyat ?></td>
                                             <td><a class="btn btn-warning btn-sm" href="<?=SITE_URL;?>/stock/edit/<?=$value['id']?>">Düzenle</a></td>
                                             <td><a class="btn btn-danger btn-sm" href="<?=SITE_URL;?>/stock/delete/<?=$value['id']?>">Sil</a></td>
                                         </tr>
