@@ -130,4 +130,15 @@ class customer extends controller
         }
     }
 
+    public function delete($id)
+    {
+        if (!   $this->sessionManager->isLogged())
+        {
+            helper::redirect(SITE_URL);
+            die();
+        }
+        $this->model('customerModel')->delete($id);
+        helper::redirect(SITE_URL."/customer");
+    }
+
 }

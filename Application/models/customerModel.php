@@ -45,4 +45,11 @@ class customerModel extends model
         }
     }
 
+    public function delete($id)
+    {
+        $query = $this->db->prepare("delete from musteriler where id=?");
+        $query->execute(array($id));
+    }
+
+
 }
