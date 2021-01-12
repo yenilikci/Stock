@@ -46,5 +46,11 @@ class stockModel extends model
 
     }
 
+    public function getDelete($id)
+    {
+        $query = $this->db->prepare("delete from stok where id=?");
+        $query->execute(array($id));
+    }
+
 
 }

@@ -130,7 +130,13 @@ class stock extends controller
 
     public function delete($id)
     {
-
+        if (!$this->sessionManager->isLogged())
+        {
+            helper::redirect(SITE_URL);
+            die();
+        }
+        $this->model('stockModel')->getDelete($id);
+        helper::redirect(SITE_URL."/stock");
     }
 
 }
