@@ -94,6 +94,31 @@
                         </li>
                     </ul>
                 </li>
+
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link active">
+                        <i class="fas fa-layer-group mr-1"></i>
+                        <p>
+                            Stok İşlemleri
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?=SITE_URL;?>/stock/create" class="nav-link">
+                                <i class="fas fa-plus-square"></i>
+                                <p>Stok İşlemi Oluştur</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?=SITE_URL;?>/stock" class="nav-link">
+                                <i class="fas fa-list-alt"></i>
+                                <p>Stok Listesi</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
