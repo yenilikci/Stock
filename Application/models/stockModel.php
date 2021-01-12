@@ -24,5 +24,27 @@ class stockModel extends model
         }
     }
 
+    public function getData($id)
+    {
+        $query = $this->db->prepare("select * from stok where id=?");
+        $query->execute(array($id));
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function updateData($id,$urunid,$musteriid,$islemtipi,$adet,$fiyat)
+    {
+        $query = $this->db->prepare("update stok set urunid=?,musteriid=?,islemtipi=?,adet=?,fiyat=?");
+        $update = $query->execute(array($urunid,$musteriid,$islemtipi,$adet,$fiyat));
+        if ($update)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
 
 }

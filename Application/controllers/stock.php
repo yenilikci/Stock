@@ -78,15 +78,53 @@ class stock extends controller
             helper::redirect(SITE_URL);
             die();
         }
+        $urunler = $this->model('productModel')->listview();
+        $musteriler = $this->model('customerModel')->listview();
         $data = $this->model('stockModel')->getData($id);
         $this->render('site/header');
         $this->render('site/sidebar');
-        $this->render('stock/edit',['data' => $data]);
+        $this->render('stock/edit',['data' => $data,'urunler' => $urunler, 'musteriler' => $musteriler]);
         $this->render('site/footer');
     }
 
     public function update($id)
     {
+        if (!$this->sessionManager->isLogged())
+        {
+            helper::redirect(SITE_URL);
+            die();
+        }
+        if ($_POST)
+        {
+            $urunid = intval($_POST['urunid']);
+            $musteriid = intval($_POST['musteriid']);
+            $islemtipi = intval($_POST['islemtipi']);
+            $adet = intval($_POST['adet']);
+            $fiyat = helper::cleaner($_POST['fiyat']);
+            if ($adet != 0 and $fiyat != "")
+            {
+                $update = $this->model('stockModel')->updateData($id,$urunid,$musteriid,$islemtipi,$adet,$fiyat);
+                if ($update)
+                {
+                    helper::flashData('statu',"Stok bilgisi başarı ile düzenlendi!");
+                    helper::redirect(SITE_URL."/stock/edit/".$id);
+                }
+                else
+                {
+                    helper::flashData('statu',"Stok bilgisi düzenlenemedi!");
+                    helper::redirect(SITE_URL."/stock/edit/".$id);
+                }
+            }
+            else
+            {
+                helper::flashData('statu',"Ürün fiyat ve adeti boş bırakılamaz!");
+                helper::redirect(SITE_URL."stock/edit/");
+            }
+        }
+        else
+        {
+            exit("Yasaklı giriş");
+        }
 
     }
 
