@@ -18,14 +18,8 @@
             <div class="row">
                 <!-- left column -->
                 <div class="col-md-12">
-                    <?php
-                    if (isset($_SESSION['statu']))
-                    {
-                        ?>
-                        <div class="alert alert-info"><?=$_SESSION['statu'];?></div>
-                        <?php
-                    }
-                    ?>
+                    <?php helper::flashDataView("statu"); ?>
+
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
