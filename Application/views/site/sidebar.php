@@ -116,6 +116,31 @@
                         </li>
                     </ul>
                 </li>
+
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link active">
+                        <i class="fas fa-scroll mr-1"></i>
+                        <p>
+                            Raporlar
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?=SITE_URL;?>/report/product" class="nav-link">
+                                <i class="fas fa-scroll"></i>
+                                <p>Ürün Analiz Raporlaması</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?=SITE_URL;?>/report/customer" class="nav-link">
+                                <i class="fas fa-scroll"></i>
+                                <p>Müşteri Analiz Raporlaması</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="nav-item">
                     <a href="<?=SITE_URL;?>/logout" class="nav-link btn-danger btn text-white">
                         <i class="fas fa-sign-out-alt"></i>
