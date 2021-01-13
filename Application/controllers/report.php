@@ -24,9 +24,10 @@ class report extends controller
             helper::redirect(SITE_URL);
             die();
         }
+        $data = $this->model('customerModel')->listview();
         $this->render('site/header');
         $this->render('site/sidebar');
-        $this->render('report/customer');
+        $this->render('report/customer/index',['data'=>$data]);
         $this->render('site/footer');
     }
 }
