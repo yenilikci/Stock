@@ -138,6 +138,12 @@
                                 <p>Müşteri Analiz Raporlaması</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<?=SITE_URL;?>/report/date" class="nav-link">
+                                <i class="fas fa-scroll"></i>
+                                <p>Tarih Bazlı Raporlama</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 

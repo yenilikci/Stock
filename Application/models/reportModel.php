@@ -65,4 +65,11 @@ class reportModel extends model
         $sonuc = $query->fetch(PDO::FETCH_ASSOC);
         return $sonuc['SUM(fiyat)']*$sonuc['adet'];
     }
+
+    public function filtrele($firstDate,$lastDate)
+    {
+        $query = $this->db->prepare("select * from stok where tarih between  ? and ? group by urunid");
+        $query->execute(array($firstDate,$lastDate));
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
