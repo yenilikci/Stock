@@ -4,18 +4,18 @@ class reportModel extends model
 {
     public function girenUrunToplam($id)
     {
-        $query = $this->db->prepare("select SUM(fiyat),adet from stok where urunid=? and islemtipi='0'");
+        $query = $this->db->prepare("select SUM(fiyat*adet) as toplam from stok where urunid=? and islemtipi='0'");
         $query->execute(array($id));
         $sonuc = $query->fetch(PDO::FETCH_ASSOC);
-        return $sonuc['SUM(fiyat)']*$sonuc['adet'];
+        return $sonuc['toplam'];
     }
 
     public function cikanUrunToplam($id)
     {
-        $query = $this->db->prepare("select SUM(fiyat),adet from stok where urunid=? and islemtipi='1'");
+        $query = $this->db->prepare("select SUM(fiyat*adet) as toplam from stok where urunid=? and islemtipi='1'");
         $query->execute(array($id));
         $sonuc = $query->fetch(PDO::FETCH_ASSOC);
-        return $sonuc['SUM(fiyat)'] * $sonuc['adet'];
+        return $sonuc['toplam'];
     }
 
     public function girenUrunAdet($id)
@@ -52,18 +52,18 @@ class reportModel extends model
     
     public function toplamKazanilanPara($id) //müşteri id
     {
-        $query = $this->db->prepare("select SUM(fiyat),adet from stok where musteriid=? and islemtipi='1'");
+        $query = $this->db->prepare("select SUM(fiyat*adet) as toplam from stok where musteriid=? and islemtipi='1'");
         $query->execute(array($id));
         $sonuc = $query->fetch(PDO::FETCH_ASSOC);
-        return $sonuc['SUM(fiyat)']*$sonuc['adet'];
+        return $sonuc['toplam'];
     }
 
     public function toplamKaybedilenPara($id) //müşteri id
     {
-        $query = $this->db->prepare("select SUM(fiyat),adet from stok where musteriid=? and islemtipi='0'");
+        $query = $this->db->prepare("select SUM(fiyat*adet) as toplam from stok where musteriid=? and islemtipi='0'");
         $query->execute(array($id));
         $sonuc = $query->fetch(PDO::FETCH_ASSOC);
-        return $sonuc['SUM(fiyat)']*$sonuc['adet'];
+        return $sonuc['toplam'];
     }
 
     public function filtrele($firstDate,$lastDate)
@@ -72,4 +72,21 @@ class reportModel extends model
         $query->execute(array($firstDate,$lastDate));
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function toplamGelir()
+    {
+        $query = $this->db->prepare("select SUM(fiyat*adet) as toplam from stok where islemtipi='1'");
+        $query->execute();
+        $sonuc = $query->fetch(PDO::FETCH_ASSOC);
+        return $sonuc['toplam'];
+    }
+
+    public function toplamGider()
+    {
+        $query = $this->db->prepare("select SUM(fiyat*adet) as toplam from stok where islemtipi='0'");
+        $query->execute();
+        $sonuc = $query->fetch(PDO::FETCH_ASSOC);
+        return $sonuc['toplam'];
+    }
+
 }

@@ -33,8 +33,8 @@ class stockModel extends model
 
     public function updateData($id,$urunid,$musteriid,$islemtipi,$adet,$fiyat)
     {
-        $query = $this->db->prepare("update stok set urunid=?,musteriid=?,islemtipi=?,adet=?,fiyat=?");
-        $update = $query->execute(array($urunid,$musteriid,$islemtipi,$adet,$fiyat));
+        $query = $this->db->prepare("update stok set urunid=?,musteriid=?,islemtipi=?,adet=?,fiyat=? where id=?");
+        $update = $query->execute(array($urunid,$musteriid,$islemtipi,$adet,$fiyat,$id));
         if ($update)
         {
             return true;

@@ -31,6 +31,7 @@
                                     <th>ID</th>
                                     <th>Ürün Adı</th>
                                     <th>İşlem Tipi</th>
+                                    <th>Adet</th>
                                     <th>Toplam Fiyat</th>
                                     <th>Düzenle</th>
                                     <th>Kaldır</th>
@@ -49,6 +50,7 @@
                                             <td><?= $value['id']?></td>
                                             <td><?= $urunler['ad']?></td>
                                             <td><?= $islem ?></td>
+                                            <td><?= $value['adet'];?></td>
                                             <td><?= $toplamFiyat ?></td>
                                             <td><a class="btn btn-warning btn-sm" href="<?=SITE_URL;?>/stock/edit/<?=$value['id']?>">Düzenle</a></td>
                                             <td><a class="btn btn-danger btn-sm" href="<?=SITE_URL;?>/stock/delete/<?=$value['id']?>">Sil</a></td>

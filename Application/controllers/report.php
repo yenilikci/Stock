@@ -14,7 +14,6 @@ class report extends controller
         $this->render('site/sidebar');
         $this->render('report/product/index',['data' => $data]);
         $this->render('site/footer');
-
     }
 
     public function customer()

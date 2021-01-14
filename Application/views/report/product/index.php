@@ -30,9 +30,9 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Ad</th>
-                                    <th>Toplam Giriş</th>
+                                    <th>Toplam Gider</th>
                                     <th>Toplam Giren Ürün</th>
-                                    <th>Toplam Çıkış</th>
+                                    <th>Toplam Gelir</th>
                                     <th>Toplam Çıkan Ürün</th>
                                     <th>Fiyat Kalan</th>
                                     <th>Ürün Kalan</th>
@@ -56,7 +56,7 @@
                                         <tr>
                                             <td><?= $value['id']?></td>
                                             <td><?= $value['ad']?></td>
-                                            <td>-<?=$toplamGiren;?></td>
+                                            <td><?=$toplamGiren;?></td>
                                             <td><?=$girenAdet;?></td>
                                             <td><?=$toplamCikan;?></td>
                                             <td><?=$cikanAdet;?></td>

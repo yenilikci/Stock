@@ -55,7 +55,7 @@
                                             <td><?=$toplamAlinanUrun?></td>
                                             <td><?=$toplamSatilanUrun?></td>
                                             <td><?=$toplamKazanilanPara?></td>
-                                            <td>-<?=$toplamKaybedilenPara?></td>
+                                            <td><?=$toplamKaybedilenPara?></td>
                                             <td><?=$kalan?></td>
                                         </tr>
 
