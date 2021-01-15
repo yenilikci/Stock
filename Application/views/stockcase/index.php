@@ -21,7 +21,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Kategori Listesi</h3>
+                            <h3 class="card-title">Kasa Listesi</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
@@ -44,8 +44,8 @@
                                         <tr>
                                             <td><?= $value['id']?></td>
                                             <td><?= $value['ad']?></td>
-                                            <td><a class="btn btn-warning btn-sm" href="<?=SITE_URL;?>/category/edit/<?=$value['id']?>">Düzenle</a></td>
-                                            <td><a class="btn btn-danger btn-sm" href="<?=SITE_URL;?>/category/delete/<?=$value['id']?>">Sil</a></td>
+                                            <td><a class="btn btn-warning btn-sm" href="<?=SITE_URL;?>/stockcase/edit/<?=$value['id']?>">Düzenle</a></td>
+                                            <td><a class="btn btn-danger btn-sm" href="<?=SITE_URL;?>/stockcase/delete/<?=$value['id']?>">Sil</a></td>
                                         </tr>
 
                                         <?php
