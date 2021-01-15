@@ -89,4 +89,4 @@ class reportModel extends model
         return $sonuc['toplam'];
     }
 
-}
+} 

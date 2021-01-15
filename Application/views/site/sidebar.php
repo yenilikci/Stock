@@ -147,6 +147,31 @@
                     </ul>
                 </li>
 
+
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link active">
+                        <i class="fas fa-cash-register mr-1"></i>
+                        <p>
+                            Kasa İşlemleri
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?=SITE_URL;?>/stockCase/create" class="nav-link">
+                                <i class="fas fa-plus-square"></i>
+                                <p>Kasa Oluştur</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?=SITE_URL;?>/stockCase" class="nav-link">
+                                <i class="fas fa-list-alt"></i>
+                                <p>Kasa Listesi</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="nav-item">
                     <a href="<?=SITE_URL;?>/logout" class="nav-link btn-danger btn text-white">
                         <i class="fas fa-sign-out-alt"></i>
