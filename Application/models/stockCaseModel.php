@@ -23,4 +23,25 @@ class stockCaseModel extends model
         }
     }
 
+    public function getData($id)
+    {
+        $query = $this->db->prepare("select * from kasa where id=?");
+        $query->execute(array($id));
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function updateData($id,$ad)
+    {
+        $query = $this->db->prepare("update kasa set ad=? where id=?");
+        $update = $query->execute(array($ad,$id));
+        if ($update)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 }
