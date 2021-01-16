@@ -117,7 +117,13 @@ class stockcase extends controller
 
     public function delete($id)
     {
-
+        if (!$this->sessionManager->isLogged())
+        {
+            helper::redirect(SITE_URL);
+            die();
+        }
+        $this->model('stockCaseModel')->getDelete($id);
+        helper::redirect(SITE_URL."/stockcase");
     }
 
 }

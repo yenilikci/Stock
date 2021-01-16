@@ -44,4 +44,10 @@ class stockCaseModel extends model
         }
     }
 
+    public function getDelete($id)
+    {
+        $query = $this->db->prepare("delete from kasa where id=?");
+        $query->execute(array($id));
+    }
+
 }
