@@ -70,6 +70,24 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label>Kasa Seçimi</label>
+                                    <select name="kasaid" class="form-control">
+                                        <option value="0">Kasa Seçme</option>
+                                        <?php
+                                        if (count($params['kasalar']) != 0)
+                                        {
+                                            foreach ($params['kasalar'] as $key => $value)
+                                            {
+                                                ?>
+                                                <option value="<?=$value['id']?>"><?=$value['ad']?></option>
+                                                <?php
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
                                     <label>İşlem Seçimi</label>
                                     <select name="islemtipi" class="form-control">
                                         <option value="0">Stok Giriş</option>

@@ -30,6 +30,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Ürün Adı</th>
+                                    <th>Kasa</th>
                                     <th>İşlem Tipi</th>
                                     <th>Adet</th>
                                     <th>Toplam Fiyat</th>
@@ -44,11 +45,13 @@
                                     foreach ($params['data'] as $key => $value)
                                     {
                                         $urunler = $this->model('productModel')->getData($value['urunid']);
+                                        $kasalar = $this->model('stockCaseModel')->getData($value['kasaid']);
                                         if($value['islemtipi'] == 0){$islem = "Stok Giriş";  $toplamFiyat = "-".$value['adet'] * $value['fiyat'];}else{$islem = "Stok Çıkış";  $toplamFiyat = $value['adet'] * $value['fiyat'];}
                                         ?>
                                         <tr>
                                             <td><?= $value['id']?></td>
                                             <td><?= $urunler['ad']?></td>
+                                            <th><?= $kasalar['ad']?></th>
                                             <td><?= $islem ?></td>
                                             <td><?= $value['adet'];?></td>
                                             <td><?= $toplamFiyat ?></td>

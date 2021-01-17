@@ -24,9 +24,10 @@ class stock extends controller
         }
         $urunler = $this->model('productModel')->listview();
         $musteriler = $this->model('customerModel')->listview();
+        $kasalar = $this->model('stockCaseModel')->listview();
         $this->render('site/header');
         $this->render('site/sidebar');
-        $this->render('stock/create',['urunler' => $urunler,'musteriler' => $musteriler]);
+        $this->render('stock/create',['urunler' => $urunler,'musteriler' => $musteriler,'kasalar' => $kasalar]);
         $this->render('site/footer');
     }
 
@@ -44,9 +45,10 @@ class stock extends controller
             $islemtipi = intval($_POST['islemtipi']);
             $adet = intval($_POST['adet']);
             $fiyat = helper::cleaner($_POST['fiyat']);
+            $kasaid = intval($_POST['kasaid']);
             if ($adet != 0 and $fiyat != "")
             {
-                $insert = $this->model('stockModel')->create($urunid,$musteriid,$islemtipi,$adet,$fiyat);
+                $insert = $this->model('stockModel')->create($urunid,$musteriid,$islemtipi,$adet,$fiyat,$kasaid );
                 if ($insert)
                 {
                     helper::flashData('statu',"Stok bilgisi başarı ile eklendi!");
@@ -80,10 +82,11 @@ class stock extends controller
         }
         $urunler = $this->model('productModel')->listview();
         $musteriler = $this->model('customerModel')->listview();
+        $kasalar = $this->model('stockCaseModel')->listview();
         $data = $this->model('stockModel')->getData($id);
         $this->render('site/header');
         $this->render('site/sidebar');
-        $this->render('stock/edit',['data' => $data,'urunler' => $urunler, 'musteriler' => $musteriler]);
+        $this->render('stock/edit',['data' => $data,'urunler' => $urunler, 'musteriler' => $musteriler,'kasalar' => $kasalar]);
         $this->render('site/footer');
     }
 
@@ -101,9 +104,10 @@ class stock extends controller
             $islemtipi = intval($_POST['islemtipi']);
             $adet = intval($_POST['adet']);
             $fiyat = helper::cleaner($_POST['fiyat']);
+            $kasaid = intval($_POST['kasaid']);
             if ($adet != 0 and $fiyat != "")
             {
-                $update = $this->model('stockModel')->updateData($id,$urunid,$musteriid,$islemtipi,$adet,$fiyat);
+                $update = $this->model('stockModel')->updateData($id,$urunid,$musteriid,$islemtipi,$adet,$fiyat,$kasaid);
                 if ($update)
                 {
                     helper::flashData('statu',"Stok bilgisi başarı ile düzenlendi!");
