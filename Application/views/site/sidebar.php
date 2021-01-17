@@ -144,6 +144,12 @@
                                 <p>Tarih Bazlı Raporlama</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<?=SITE_URL;?>/report/caser" class="nav-link">
+                                <i class="fas fa-scroll"></i>
+                                <p>Kasa Raporlama</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 

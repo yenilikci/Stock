@@ -89,4 +89,35 @@ class reportModel extends model
         return $sonuc['toplam'];
     }
 
+    public function girenUrunToplamKasa($id)
+    {
+        $query = $this->db->prepare("select SUM(fiyat*adet) as toplam from stok where kasaid=? and islemtipi='0'");
+        $query->execute(array($id));
+        $sonuc = $query->fetch(PDO::FETCH_ASSOC);
+        return $sonuc['toplam'];
+    }
+
+    public function cikanUrunToplamKasa($id)
+    {
+        $query = $this->db->prepare("select SUM(fiyat*adet) as toplam from stok where kasaid=? and islemtipi='1'");
+        $query->execute(array($id));
+        $sonuc = $query->fetch(PDO::FETCH_ASSOC);
+        return $sonuc['toplam'];
+    }
+
+    public function girenUrunAdetKasa($id)
+    {
+        $query = $this->db->prepare("select SUM(adet) from stok where kasaid=? and islemtipi='0'");
+        $query->execute(array($id));
+        $sonuc = $query->fetch(PDO::FETCH_ASSOC);
+        return $sonuc['SUM(adet)'];
+    }
+
+    public function cikanUrunAdetKasa($id)
+    {
+        $query = $this->db->prepare("select SUM(adet) from stok where kasaid=? and islemtipi='1'");
+        $query->execute(array($id));
+        $sonuc = $query->fetch(PDO::FETCH_ASSOC);
+        return $sonuc['SUM(adet)'];
+    }
 } 

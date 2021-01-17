@@ -72,7 +72,7 @@
                                 <div class="form-group">
                                     <label>Kasa Seçimi</label>
                                     <select name="kasaid" class="form-control">
-                                        <option <?php if($params['data']['musteriid'] == 0){echo 'selected';}?> value="0">Müşteri Seçme</option>
+                                        <option <?php if($params['data']['musteriid'] == 0){echo 'selected';}?> value="0">Kasa Seçme</option>
                                         <?php
                                         if (count($params['kasalar']) != 0)
                                         {

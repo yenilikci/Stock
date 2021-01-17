@@ -52,4 +52,19 @@ class report extends controller
         $this->render('report/date/index',['data'=>$data]);
         $this->render('site/footer');
     }
+
+    public function caser()
+    {
+
+        if (!$this->sessionManager->isLogged())
+        {
+            helper::redirect(SITE_URL);
+            die();
+        }
+        $data = $this->model('stockCaseModel')->listview();
+        $this->render('site/header');
+        $this->render('site/sidebar');
+        $this->render('report/case/index',['data'=>$data]);
+        $this->render('site/footer');
+    }
 }
