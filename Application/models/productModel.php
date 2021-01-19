@@ -50,4 +50,11 @@ class productModel extends model
         $query->execute(array($id));
     }
 
+    public function search($name)
+    {
+        $query = $this->db->prepare("select * from urunler where ad like ?");
+        $query->execute(array("%".$name."%"));
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
