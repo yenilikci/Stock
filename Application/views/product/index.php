@@ -19,7 +19,8 @@
 
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
+                    <a href="<?=SITE_URL?>/excel/export" class="btn btn-info">Excel Olarak İndir</a>
+                    <div class="card mt-2">
                         <div class="card-header">
                             <h3 class="card-title">Ürün Listesi</h3>
                         </div>
